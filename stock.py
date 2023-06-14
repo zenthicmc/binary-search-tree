@@ -55,6 +55,10 @@ class Stock:
 	
 	def show(self):
 		data = tree.printTree()
+		
+		# remove duplicate data
+		data = [i for n, i in enumerate(data) if i not in data[n + 1:]]
+
 		if(data != None):
 			table = PrettyTable(['SKU', 'Nama', 'Harga', 'Stok'])
 			print("\n======= Tampilkan Data Stock =======")
