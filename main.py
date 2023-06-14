@@ -11,8 +11,7 @@ class Menu:
 		if choice == '1':
 			self.menu_stock()
 		elif choice == '2':
-			# code goes here
-			pass
+			self.menu_transaksi()
 
 	def menu_stock(self):
 		while True:
