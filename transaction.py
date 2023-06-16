@@ -36,7 +36,7 @@ class Transaction():
             if choice.lower() == 'y':
                 self.input_transaction()
             return
-
+        # data none
         if sum_beli > product.data['stok']:
             print("Jumlah Stok No. SKU yang Anda beli tidak mencukupi.")
             choice = input("Apakah ingin melanjutkan transaksi (Y/N)? ")

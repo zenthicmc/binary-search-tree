@@ -52,6 +52,7 @@ class Menu:
 		elif choice == '0':
 			self.main()
 
+
 				
 # Jalankan aplikasi
 if __name__ == '__main__':
