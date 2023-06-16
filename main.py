@@ -1,4 +1,5 @@
 from stock import Stock
+from transaction import Transaction
 
 class Menu:
 	def main(self):
@@ -34,7 +35,23 @@ class Menu:
 
 	def menu_transaksi(self):
 		# code goes here
-		pass
+		print("\n=========== Kelola Transaksi Konsumen ===========")
+		print("1. Input Data Transaksi Baru")
+		print("2. Lihat Data Transaksi Konsumen")
+		print("3. Lihat Data Transaksi Berdasarkan Subtotal")
+		print("\n0. Kembali ke Menu Utama")
+
+		choice = input("\nPilih Menu: ")
+
+		if choice == '1':
+			Transaction().input_transaction()
+		elif choice == '2':
+			Transaction().show_transaction()
+		elif choice == '3':
+			Transaction().show_transaction_by_subtotal()
+		elif choice == '0':
+			self.main()
+
 
 				
 # Jalankan aplikasi

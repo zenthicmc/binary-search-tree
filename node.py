@@ -40,6 +40,10 @@ class Node:
 		return data
 
 	def search(self, val):
+		# modify
+		if self.data is None or self.data['sku'] == val:
+			return self
+
 		if val < self.data['sku']:
 			if self.left is None:
 				return False
@@ -50,3 +54,14 @@ class Node:
 			return self.right.search(val)
 		else:
 			return self.data
+		
+	def search_by_sku(self, val):
+		data = self.printTree()
+
+		if self.data and self.data['sku'] == val:
+			return self.data
+		if val < self.data['sku'] and self.left:
+			return self.left.search_by_sku(val)
+		elif val > self.data['sku'] and self.right:
+			return self.right.search_by_sku(val)
+		return None

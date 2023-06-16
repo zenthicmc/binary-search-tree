@@ -1,5 +1,5 @@
-from node import Node
 from prettytable import PrettyTable
+from node import Node
 
 init = False
 tree = None
@@ -32,6 +32,7 @@ class Stock:
 		tree.insert(data)
 		
 		print("Data berhasil ditambahkan!")
+		# print(data)
 
 		return True
 
