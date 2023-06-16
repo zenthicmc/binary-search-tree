@@ -20,7 +20,7 @@ class Transaction():
         sku = int(input("SKU: "))
         sum_beli = int(input("Jumlah Pembelian: "))
   
-        product = bst.search(sku)
+        product = bst.get_data_by_sku(sku)
 
         if product is None:
             print("Barang yang diinputkan belum terdaftar.")
@@ -29,24 +29,20 @@ class Transaction():
                 self.input_transaction()
             return
          
-        # testing data bernilai none
-        if product.data is None:
-            print("Barang dengan SKU tersebut tidak ditemukan.")
-            choice = input("Apakah ingin melanjutkan transaksi (Y/N)? ")
-            if choice.lower() == 'y':
-                self.input_transaction()
-            return
-        # data none
-        if sum_beli > product.data['stok']:
+        if sum_beli > product['stok']:
             print("Jumlah Stok No. SKU yang Anda beli tidak mencukupi.")
             choice = input("Apakah ingin melanjutkan transaksi (Y/N)? ")
             if choice == 'y':
                 self.input_transaction()
             return
 
-        subtotal = sum_beli * product.data['harga']
+        subtotal = sum_beli * product['harga']
 
         transaction_list.append([nama_konsumen, sku, sum_beli, subtotal])
+        print("Transaksi berhasil ditambahkan!")
+
+        # cek apakah data sudah terinput
+        print(transaction_list)
 
 
     def show_transaction(self):

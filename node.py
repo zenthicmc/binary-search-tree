@@ -54,14 +54,10 @@ class Node:
 			return self.right.search(val)
 		else:
 			return self.data
-		
-	def search_by_sku(self, val):
-		data = self.printTree()
 
-		if self.data and self.data['sku'] == val:
-			return self.data
-		if val < self.data['sku'] and self.left:
-			return self.left.search_by_sku(val)
-		elif val > self.data['sku'] and self.right:
-			return self.right.search_by_sku(val)
+	def get_data_by_sku(self, sku):
+		data = self.printTree()
+		for i in data:
+			if i['sku'] == sku:
+				return i
 		return None
