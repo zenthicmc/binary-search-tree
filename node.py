@@ -40,10 +40,6 @@ class Node:
 		return data
 
 	def search(self, val):
-		# modify
-		if self.data is None or self.data['sku'] == val:
-			return self
-
 		if val < self.data['sku']:
 			if self.left is None:
 				return False
