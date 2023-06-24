@@ -42,21 +42,27 @@ class Transaction():
         print("Transaksi berhasil ditambahkan!")
 
         # cek apakah data sudah terinput
-        print(transaction_list)
+        # print(transaction_list)
+
+        return True
 
 
     def show_transaction(self):
         print("\n======= Masukkan Transaksi Baru =======")
-        for i in transaction_list:
-            print("Nama Konsumen:", i.nama_konsumen)
-            print("No. SKU barang yang dibeli:", i.sku)
-            print("Jumlah Beli:", i.sum_beli)
-            print("Subtotal:", i.subtotal)
+        for data in transaction_list:
+            print("Nama Konsumen:", data[0])
+            print("No. SKU barang yang dibeli:", data[1])
+            print("Jumlah Beli:", data[2])
+            print("Subtotal:", data[3])
+
+        return True
 
     def show_transaction_by_subtotal(self):
         sorted_transactions = self.quicksort_transactions(transaction_list)
         for transaction in sorted_transactions:
             print(transaction)
+        
+        return True
 
     def quicksort_transactions(transactions):
         if len(transactions) <= 1:
