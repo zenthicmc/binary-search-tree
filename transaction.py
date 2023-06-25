@@ -1,4 +1,5 @@
 from node import Node
+from prettytable import PrettyTable
 
 transaction_list = []
 
@@ -44,27 +45,31 @@ class Transaction():
         # cek apakah data sudah terinput
         # print(transaction_list)
 
-        return True
-
 
     def show_transaction(self):
-        print("\n======= Masukkan Transaksi Baru =======")
-        for data in transaction_list:
-            print("Nama Konsumen:", data[0])
-            print("No. SKU barang yang dibeli:", data[1])
-            print("Jumlah Beli:", data[2])
-            print("Subtotal:", data[3])
+        print("\n======= Data Transaksi =======")
+        table = PrettyTable()
+        column_names = ['Nama', 'SKU','Jumlah Beli','Subtotal']
+        table.field_names = column_names
 
+        for data in transaction_list:
+            table.add_row(data)
+        print(table)
         return True
 
     def show_transaction_by_subtotal(self):
-        sorted_transactions = self.quicksort_transactions(transaction_list)
+        table = PrettyTable()
+        column_names = ['Nama', 'SKU','Jumlah Beli','Subtotal']
+        table.field_names = column_names
+
+        sorted_transactions = self.quicksort_transactions()
         for transaction in sorted_transactions:
-            print(transaction)
-        
+            table.add_row(transaction)
+        print(table)
         return True
 
-    def quicksort_transactions(transactions):
+    def quicksort_transactions(self):
+        transactions = transaction_list
         if len(transactions) <= 1:
             return transactions
         else:
